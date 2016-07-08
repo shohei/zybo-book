@@ -1,0 +1,13 @@
+#!/bin/sh
+i=1
+while [ "$i" -le 24 ]
+do
+  ./httpclient digitalfilter.com /zybobook/iircoeff01.html
+  ./putfiltercoeff
+  ./readfifo
+  ./calcfft
+  cat fft.txt | mail -s "FFT from ZYBO" username@userdomain.com
+  sleep 3600
+  i=`expr "$i" + 1`
+done
+

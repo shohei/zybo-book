@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>ZYBO control page</title>
+  </head>
+  <body>
+<P>ZYBO control page </P>
+<Hr>
+<form action="http://192.168.0.5/cgi-bin/led.pl" method="get">
+ <P>LED:
+ <p>led0
+ <input type="radio" name="led0" value=1>on
+ <input type="radio" name="led0" value=0 checked="checked">off
+ </p>
+ <p>led1
+ <input type="radio" name="led1" value=1>on
+ <input type="radio" name="led1" value=0 checked="checked">off
+ </p>
+ <p>led2
+ <input type="radio" name="led2" value=1>on
+ <input type="radio" name="led2" value=0 checked="checked">off
+ </p>
+ <p>led3
+ <input type="radio" name="led3" value=1>on
+ <input type="radio" name="led3" value=0 checked="checked">off
+ </p>
+ <input type="submit" name="submit" value="set" </p>
+ </P>
+</form>
+<Hr>
+<form action="http://192.168.0.5/cgi-bin/sw.pl" method="get">
+ <P>SW:
+ </p>
+ <input type="submit" name="submit" value="read" /></p>
+ </P>
+</form>
+<Hr>
+<form action="http://192.168.0.5/cgi-bin/led_matrix.pl" method="get">
+ <P>LED_MATRIX:
+ <p>
+ <input type="radio" name="bmp_sel" value=0 /> RGB </p>
+ <p>
+ <input type="radio" name="bmp_sel" value=1 /> RED </p>
+ <p>
+ <input type="radio" name="bmp_sel" value=2 /> GREEN </p>
+ <p>
+ <input type="radio" name="bmp_sel" value=3 /> BLUE </p>
+ <p>
+ <input type="radio" name="bmp_sel" value=4 checked="checked" /> off </p>
+ <p>
+ <input type="submit" name="submit" value="set" /></p>
+ </P>
+</form>
+<Hr>
+  </body>
+</html>
