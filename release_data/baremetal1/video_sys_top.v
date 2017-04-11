@@ -66,11 +66,11 @@ module video_sys_top
   inout FIXED_IO_ps_srstb;
   //output [31:0]gpio_rtl_tri_o;
   output [3:0]led;
-  output vo_vsync; //�ǉ�
-  output vo_hsync; //�ǉ�
-  output [4:0]vo_r_data; //�ǉ�
-  output [5:0]vo_g_data; //�ǉ�
-  output [4:0]vo_b_data; //�ǉ�
+  output vo_vsync; //追加
+  output vo_hsync; //追加
+  output [4:0]vo_r_data; //追加
+  output [5:0]vo_g_data; //追加
+  output [4:0]vo_b_data; //追加
 
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
@@ -94,14 +94,14 @@ module video_sys_top
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
   wire [31:0]gpio_rtl_tri_o;
-  wire vid_io_out_active_video; //�ǉ�
-  wire [23:0]vid_io_out_data; //�ǉ�
-  wire vid_io_out_field; //�ǉ�
-  wire vid_io_out_hblank; //�ǉ�
-  wire vid_io_out_hsync; //�ǉ�
-  wire vid_io_out_vblank; //�ǉ�
-  wire vid_io_out_vsync; //�ǉ�
-  wire vo_en; //�ǉ�
+  wire vid_io_out_active_video; //追加
+  wire [23:0]vid_io_out_data; //追加
+  wire vid_io_out_field; //追加
+  wire vid_io_out_hblank; //追加
+  wire vid_io_out_hsync; //追加
+  wire vid_io_out_vblank; //追加
+  wire vid_io_out_vsync; //追加
+  wire vo_en; //追加
 
   //video_sys video_sys_i
   video_sys_wrapper video_sys_wrapper_i
@@ -127,21 +127,21 @@ module video_sys_top
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
         .gpio_rtl_tri_o(gpio_rtl_tri_o),
-        .vid_io_out_active_video(vid_io_out_active_video), //�ǉ�
-        .vid_io_out_data(vid_io_out_data), //�ǉ�
-        .vid_io_out_field(vid_io_out_field), //�ǉ�
-        .vid_io_out_hblank(vid_io_out_hblank), //�ǉ�
-        .vid_io_out_hsync(vid_io_out_hsync), //�ǉ�
-        .vid_io_out_vblank(vid_io_out_vblank), //�ǉ�
-        .vid_io_out_vsync(vid_io_out_vsync) //�ǉ�
+        .vid_io_out_active_video(vid_io_out_active_video), //追加
+        .vid_io_out_data(vid_io_out_data), //追加
+        .vid_io_out_field(vid_io_out_field), //追加
+        .vid_io_out_hblank(vid_io_out_hblank), //追加
+        .vid_io_out_hsync(vid_io_out_hsync), //追加
+        .vid_io_out_vblank(vid_io_out_vblank), //追加
+        .vid_io_out_vsync(vid_io_out_vsync) //追加
         );
 		
    assign led = {gpio_rtl_tri_o[3:0]};
-   assign vo_vsync = vid_io_out_vsync; //�ǉ�
-   assign vo_hsync = vid_io_out_hsync; //�ǉ�
-   assign vo_en=((vid_io_out_vblank==1'b1)||(vid_io_out_hblank==1'b1))?1'b0:1'b1; //�ǉ�
-   assign vo_r_data=(vo_en==1'b0)?5'b00000:vid_io_out_data[7:3]; //�ǉ�
-   assign vo_g_data=(vo_en==1'b0)?6'b000000:vid_io_out_data[15:10]; //�ǉ�
-   assign vo_b_data=(vo_en==1'b0)?5'b00000:vid_io_out_data[23:19]; //�ǉ�
+   assign vo_vsync = vid_io_out_vsync; //追加
+   assign vo_hsync = vid_io_out_hsync; //追加
+   assign vo_en=((vid_io_out_vblank==1'b1)||(vid_io_out_hblank==1'b1))?1'b0:1'b1; //追加
+   assign vo_r_data=(vo_en==1'b0)?5'b00000:vid_io_out_data[7:3]; //追加
+   assign vo_g_data=(vo_en==1'b0)?6'b000000:vid_io_out_data[15:10]; //追加
+   assign vo_b_data=(vo_en==1'b0)?5'b00000:vid_io_out_data[23:19]; //追加
    
 endmodule

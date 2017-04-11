@@ -34,8 +34,8 @@ int main()
 	XVtc_Config *Config_vtc;
 	XAxiVdma_Config *Config_Vdma;
     init_platform();
-	print("Hello World\n\r");
-    Xil_DCacheDisable();//ƒLƒƒƒbƒVƒ…–³Œø
+	print("Hello WorldÂ¥nÂ¥r");
+    Xil_DCacheDisable();//ã‚­ãƒ£ãƒƒã‚·ãƒ¥ç„¡åŠ¹
 	//gpio
 	Status = XGpio_Initialize(&Gpio, GPIO_EXAMPLE_DEVICE_ID);
 	if (Status != XST_SUCCESS) {
@@ -57,7 +57,7 @@ int main()
 	if (Status != XST_SUCCESS) {
 		return XST_FAILURE;
 	}
-	//dmaİ’è
+	//dmaè¨­å®š
 	XAxiVdma_WriteReg(XPAR_AXI_VDMA_0_BASEADDR, 0x0, 0x4); //reset
 	XAxiVdma_WriteReg(XPAR_AXI_VDMA_0_BASEADDR, 0x0, 0x8); //gen-lock
 	XAxiVdma_WriteReg(XPAR_AXI_VDMA_0_BASEADDR, 0x5C, 0x08000000);//start adr
@@ -65,26 +65,26 @@ int main()
 	XAxiVdma_WriteReg(XPAR_AXI_VDMA_0_BASEADDR, 0x58, 0x01001000);//
 	XAxiVdma_WriteReg(XPAR_AXI_VDMA_0_BASEADDR, 0x0, 0x83);//enablr
 	XAxiVdma_WriteReg(XPAR_AXI_VDMA_0_BASEADDR, 0x50, 720);//v size,start dma
-    //LED§Œä‚¨‚æ‚Ñ‰æ‘œƒf[ƒ^¶¬
+    //LEDåˆ¶å¾¡ãŠã‚ˆã³ç”»åƒãƒ‡ãƒ¼ã‚¿ç”Ÿæˆ
     while(1){
     	for(i=0;i<4;i++){
     		XGpio_DiscreteWrite(&Gpio, LED_CHANNEL, (u32)i);
-           for(v=0;v<720;v++){ //‚’¼•ûŒüƒJƒEƒ“ƒg
-              for(h1=0;h1<1280;h1++)//…•½•ûŒüƒJƒEƒ“ƒg
+           for(v=0;v<720;v++){ //å‚ç›´æ–¹å‘ã‚«ã‚¦ãƒ³ãƒˆ
+              for(h1=0;h1<1280;h1++)//æ°´å¹³æ–¹å‘ã‚«ã‚¦ãƒ³ãƒˆ
         	   {
      		      ddr_ptr = (unsigned char *) 0x08000000+(v*0x1000)+h1*3;
         		  if((i==0)||(i==3))
-       	     	     *ddr_ptr = 0xff; //Ô
+       	     	     *ddr_ptr = 0xff; //èµ¤
         		  else
       	     	     *ddr_ptr = 0x0;
    			      ddr_ptr++;
    			      if((i==1)||(i==3))
-       	     	        *ddr_ptr = 0xff;//—Î
+       	     	        *ddr_ptr = 0xff;//ç·‘
          		  else
        	     	     *ddr_ptr = 0x0;
    			       ddr_ptr++;
    			      if((i==2)||(i==3))
-       	     	        *ddr_ptr = 0xff;//Â
+       	     	        *ddr_ptr = 0xff;//é’
          		  else
        	     	     *ddr_ptr = 0x0;
         	   }
